@@ -3,7 +3,10 @@ const User = require("../models/users.model");
 const jwt= require("jsonwebtoken");
 const jwtKey=process.env.JWT_SECRET
 const transports= require("../config/nodemailer.js");
-import { EMAIL_VERIFY_TEMPLATE, PASSWORD_RESET_TEMPLATE } from "../config/emailTemplates.js";
+const {
+    EMAIL_VERIFY_TEMPLATE,
+    PASSWORD_RESET_TEMPLATE
+} = require("../config/emailTemplates");
 
 const register= async (req,res)=>{
 

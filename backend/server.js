@@ -9,15 +9,15 @@ const cors= require("cors");
  const port= process.env.PORT || 4000 ;
 
  
- const allowsOrigin=['http://localhost:5173',
-      'https://auth-mern-beryl.vercel.app',
-      'https://auth-mern-ofhcxho5r-sujan-s-projects-b8ff6630.vercel.app',
-      'https://auth-mern-4dl4pf3iw-sujan-s-projects-b8ff6630.vercel.app'
+//  const allowsOrigin=['http://localhost:5173',
+//       'https://auth-mern-beryl.vercel.app',
+//       'https://auth-mern-ofhcxho5r-sujan-s-projects-b8ff6630.vercel.app',
+//       'https://auth-mern-4dl4pf3iw-sujan-s-projects-b8ff6630.vercel.app'
 
-];
+// ];
  app.use(cors({
     credentials:true,
-    origin: allowsOrigin,
+    origin: "https://auth-mern-beryl.vercel.app",
  }))
 
  connectDB();// db connected call 

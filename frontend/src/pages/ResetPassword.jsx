@@ -57,7 +57,7 @@ e.preventDefault();
 
 console.log(otpValue);
 
-const {data} = await axios.post(backendUrl+"/auth/emailverify", {otp:otpValue})
+const {data} = await axios.post(backendUrl+"/auth/emailverify", {otp:otpValue},{withCredentials: true })
 
 if( data.success){
   toast.success(data.message)

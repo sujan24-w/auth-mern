@@ -13,7 +13,7 @@ function Navbar() {
 
 const handleLogout= async ()=>{
   try{
-    const {data}=  await axios.post(backendUrl+"/auth/logout")
+    const {data}=  await axios.post(backendUrl+"/auth/logout",{},{  withCredentials: true})
     console.log(data);
     
     if(!data.success){
@@ -35,7 +35,7 @@ const handleLogout= async ()=>{
 
 const sentVerifyOtp= async ()=>{
   try{
-       const {data} = await axios.post(backendUrl+"/auth/sent-verify-otp")
+       const {data} = await axios.post(backendUrl+"/auth/sent-verify-otp",{},{ withCredentials: true})
        if(data.success){
          navigate("/emailverify");
          toast.success(data.message)
@@ -52,7 +52,7 @@ const sentVerifyOtp= async ()=>{
 
 const handleEmailVerify= async ()=>{
   try{
-    const {data}=  await axios.post(backendUrl+"/auth/logout")
+    const {data}=  await axios.post(backendUrl+"/auth/logout",{},{withCredentials: true})
     console.log(data);
     
     if(!data.success){

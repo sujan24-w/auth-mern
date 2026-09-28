@@ -38,7 +38,11 @@ const {backendUrl, setIsLoggedIn, getUserData } =useContext(AppContext);
         const {data}= await axios.post(backendUrl+"/auth/register", {
           username:formData.username,
           email:formData.email,
-          password: formData.password});
+          password: formData.password},
+        {
+            withCredentials: true
+        }
+        );
           
 console.log(data);
 
@@ -54,7 +58,9 @@ console.log(data);
       else{
          const  {data}= await axios.post(backendUrl+"/auth/login", {
           email:formData.email,
-          password:formData.password});
+          password:formData.password},{
+              withCredentials: true
+          });
 console.log(data);
 
         if(data.success){

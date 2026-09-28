@@ -3,7 +3,7 @@ const User = require("../models/users.model");
 const jwt= require("jsonwebtoken");
 const jwtKey=process.env.JWT_SECRET
 const transports= require("../config/nodemailer.js");
-
+import { EMAIL_VERIFY_TEMPLATE, PASSWORD_RESET_TEMPLATE } from "../config/emailTemplates.js";
 
 const register= async (req,res)=>{
 
@@ -154,8 +154,8 @@ const sendVerifyOtp=  async (req,res)=>{
         from:process.env.EMAIL_USER,
         to: user.email,
         subject: 'Account verify otp ',
-        text:`your otp is : ${otp} verify this account this  otp `,
-        
+        // text:`your otp is : ${otp} verify this account this  otp `,
+        html:  EMAIL_VERIFY_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
       }
       await transports.sendMail(mailOptions)
       res.json({success:true, message:"verification  OPT is send  on email"});
@@ -245,7 +245,7 @@ const sendResetOtp= async (req,res)=>{
         to: user.email,
         subject: 'password reset  otp ',
         text:`your otp for resetting your password is : ${otp} Use this otp   to proceed with resetting tour passowrd.`,
-        
+        html:PASSWORD_RESET_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
       }
       await transports.sendMail(mailOptions);
 
@@ -284,7 +284,7 @@ const verifyResetOtp= async  (req,res)=>{
                 message: "WRONG OTP"
             });
         } 
-         if (user.resetOtpExpireAt < Date.now()) {
+         if (user.resetOtpExiireAt < Date.now()) {
             return res.json({
                 success: false,
                 message: "OTP is expired"

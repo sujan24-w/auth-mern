@@ -10,7 +10,7 @@ const cors= require("cors");
 
  
  const allowsOrigin=['http://localhost:5173',
- "https://auth-mern-beryl.vercel.app"
+ "https://auth-mern-ofhcxho5r-sujan-s-projects-b8ff6630.vercel.app"
 ];
  app.use(cors({
     credentials:true,

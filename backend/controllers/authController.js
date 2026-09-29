@@ -164,7 +164,7 @@ const sendVerifyOtp=  async (req,res)=>{
       res.json({success:true, message:"verification  OPT is send  on email"});
     
     }catch(error){
-        res.status(500).json({suceess:false,  message:error.message})
+        res.status(500).json({success:false,  message:error.message})
     }
 
 }

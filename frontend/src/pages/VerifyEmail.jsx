@@ -78,7 +78,7 @@ useEffect(()=>{
 
 
     <div className='flex  flex-col text-center items-center justify-center w-full h-screen'>
-        <form  className=" bg-slate-900 p-10 text-gray-200  rounded-xl shadow-lg text-sm" >
+        <form onSubmit={handleOtpSubmit} className=" bg-slate-900 p-10 text-gray-200  rounded-xl shadow-lg text-sm" >
                 <img src={assets.otpimg} alt="" />
                 <h1 className='text-3xl font-semibold mb-3'>Verify OTP</h1>
                 <p className='mb-4'>Enter a 6_digit  code sent  to  email  example@gmail.com</p>
@@ -110,7 +110,7 @@ useEffect(()=>{
                 
 
                 <p className='mb-5 text-indigo-50'>Dont receive a code?{" "} <span className='text-indigo-300'>Resend OTP</span></p>
-                <button onClick={handleOtpSubmit} className='w-full  py-3 px-2 rounded-2xl text-white bg-linear-to-r from-indigo-500 to-indigo-700 font-medium'>Verify OTP</button>
+                <button type="submit" className='w-full  py-3 px-2 rounded-2xl text-white bg-linear-to-r from-indigo-500 to-indigo-700 font-medium'>Verify OTP</button>
         </form>
     </div>
     </div>

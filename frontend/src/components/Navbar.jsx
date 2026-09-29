@@ -45,32 +45,12 @@ const sentVerifyOtp= async ()=>{
 
          toast.error(data.message)
        }
-  }catch{
+  }catch(error){
      toast.error(error.message)
   }
 }
 
-const handleEmailVerify= async ()=>{
-  try{
-    const {data}=  await axios.post(backendUrl+"/auth/logout",{},{withCredentials: true})
-    console.log(data);
-    
-    if(!data.success){
-        toast.error(data.message)
 
-    }
-    
-    setIsLoggedIn(false);
-    setUserData(false);
-    navigate("/")
-    toast.success(data.message)
-
-    
-
-  }catch(error){
-  toast.error(error.message)
-  }
-}
 
 
 
@@ -85,7 +65,7 @@ const handleEmailVerify= async ()=>{
       {(username[0]+ username[username.length-1]+" ").toUpperCase()} 
       </div >
       <div className=" hidden  absolute group-hover:block top-0 right-0 z-10 text-black rounded pt-10 w-30 ">
-<       ul className='list-none m-0 p-2 bg-gray-100 text-sm '>
+ <ul className='list-none m-0 p-2 bg-gray-100 text-sm '>
         { ! isAccountVerify &&
          <li onClick={sentVerifyOtp} className='py-1 px-2 hover:bg-gray-200 cursor-pointer'>Verify Email </li>
         } 

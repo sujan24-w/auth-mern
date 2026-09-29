@@ -16,8 +16,8 @@ const cors= require("cors");
 
 // ];
  app.use(cors({
-    credentials:true,
     origin: "https://auth-mern-beryl.vercel.app",
+    credentials:true,
  }))
 
  connectDB();// db connected call 

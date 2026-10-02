@@ -150,12 +150,15 @@ console.log(data);
                 required
               />
             </div>
-            <p
+            {
+             loginState !=="Sign Up" &&
+              <p
               onClick={() => navigates("/reset-pass")}
               className="cursor-pointer mb-4 text-indigo-500 "
-            >
+              >
               Forget Password?{" "}
             </p>
+            }
 
             <button className="w-full py-3 rounded-full text-white bg-linear-to-r from-indigo-500 to-indigo-900 font-medium ">
               {loginState}

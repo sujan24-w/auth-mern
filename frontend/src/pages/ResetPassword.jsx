@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 function ResetPassword() {
  const navigate= useNavigate();
 
-const {backendUrl,getUserData,isLoggedIn,}= useContext(AppContext)
+const {backendUrl,userData,getUserData,isLoggedIn,}= useContext(AppContext)
 
 
 
@@ -80,7 +80,12 @@ if( data.success){
 }
 const OnSubmitEmail= async (e)=>{
   e.preventDefault();
+
+
   try{
+    if(email.trim()!==userData.email.trim()){
+     return toast.error(" Enter a  Email that you are currently loggedIn that you want to  change  Password")
+    }
     const {data}= await axios.post(backendUrl+"/auth/send-resetotp", {email})
     
   if(data.success){
@@ -166,7 +171,7 @@ if(data.success){
     {!isEmailSent  && 
     <form  onSubmit={OnSubmitEmail} className='flex flex-col text-white text-center p-10 text-sm bg-slate-800 rounded-2xl'>
      <h1 className='text-2xl font-semibold mb-3'>Reset Password</h1>
-    <p className='mb-4 text-center text-indigo-200'>Enter your regidtered email address</p>
+    <p className='mb-4 text-center text-indigo-200'>Enter your registered email address</p>
 
      <div className="mb-3 flex items-center gap-3 w-90 px-8 py-3 rounded-full  bg-gray-700">
               <img src={assets.mail_icon} alt="" />

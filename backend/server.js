@@ -8,15 +8,13 @@ const cors= require("cors");
  const app= express();
  const port= process.env.PORT || 4000 ;
 
- 
-//  const allowsOrigin=['http://localhost:5173',
-//       'https://auth-mern-beryl.vercel.app',
-//       'https://auth-mern-ofhcxho5r-sujan-s-projects-b8ff6630.vercel.app',
-//       'https://auth-mern-4dl4pf3iw-sujan-s-projects-b8ff6630.vercel.app'
+  const allowsOrigin=['http://localhost:5173', 
+         'https://auth-mern-beryl.vercel.app',
+       
 
-// ];
+ ];
  app.use(cors({
-    origin: "https://auth-mern-beryl.vercel.app",
+    origin:allowsOrigin,
     credentials:true,
  }))
 

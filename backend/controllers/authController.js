@@ -99,9 +99,9 @@ const userLogin= async (req, res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure: process.env.NODE_ENV==='production',
+            secure: process.env.NODE_ENV==='production' ? true : false,
             sameSite: process.env.NODE_ENV==="production"? "none": "strict",
-            maxAge: 1*24*60*60*1000
+            maxAge: 1*24*60*60*1000 
         });
 
 
@@ -157,8 +157,8 @@ const sendVerifyOtp=  async (req,res)=>{
         from:process.env.EMAIL_USER,
         to: user.email,
         subject: 'Account verify otp ',
-        // text:`your otp is : ${otp} verify this account this  otp `,
-        html:  EMAIL_VERIFY_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
+         text:`your otp is : ${otp} verify this account this  otp `,
+        // html:  EMAIL_VERIFY_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
       }
       await transports.sendMail(mailOptions)
       res.json({success:true, message:"verification  OPT is send  on email"});
@@ -248,7 +248,7 @@ const sendResetOtp= async (req,res)=>{
         to: user.email,
         subject: 'password reset  otp ',
         text:`your otp for resetting your password is : ${otp} Use this otp   to proceed with resetting tour passowrd.`,
-        html:PASSWORD_RESET_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
+       // html:PASSWORD_RESET_TEMPLATE.replace("{{otp}}",otp).replace("{{email}}",user.email)
       }
       await transports.sendMail(mailOptions);
 

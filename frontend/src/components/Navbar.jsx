@@ -50,9 +50,13 @@ const sentVerifyOtp= async ()=>{
   }
 }
 
+const handlePassReset= async ()=>{
+  console.log("reset pass");
+  navigate("/reset-pass")
+}
 
-
-
+ 
+ 
 
   return (
     <>
@@ -70,6 +74,7 @@ const sentVerifyOtp= async ()=>{
          <li onClick={sentVerifyOtp} className='py-1 px-2 hover:bg-gray-200 cursor-pointer'>Verify Email </li>
         } 
           <li onClick={handleLogout}  className='py-1 px-2 hover:bg-gray-200 cursor-pointer'>Logout</li>
+          <li onClick={handlePassReset}  className='py-1 px-2 hover:bg-gray-200 cursor-pointer'>Reset-Pass</li>
         </ul>
 
       </div>

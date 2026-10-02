@@ -109,7 +109,7 @@ useEffect(()=>{
 
                 
 
-                <p className='mb-5 text-indigo-50'>Dont receive a code?{" "} <span className='text-indigo-300'>Resend OTP</span></p>
+                <p className='mb-5 text-indigo-50'>Dont receive a code?{" "} <span  onClick={()=>navigate("/")} className='text-indigo-300'>Resend OTP</span></p>
                 <button type="submit" className='w-full  py-3 px-2 rounded-2xl text-white bg-linear-to-r from-indigo-500 to-indigo-700 font-medium'>Verify OTP</button>
         </form>
     </div>
